@@ -17,6 +17,8 @@ access_token = 'SOME_SECRET'
 
 print("secret")
 print(SOME_SECRET)
+print("access")
+print(access_token)
 
 # Create a Mastodon instance
 mastodon = Mastodon(
