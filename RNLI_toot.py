@@ -5,7 +5,7 @@ import sys
 from mastodon import Mastodon
 
 try:
-    SOME_SECRET = ${{ secrets.SOME_SECRET }}
+    SOME_SECRET = os.environ[SOME_SECRET']
 except KeyError:
     SOME_SECRET = "Token not available!"
     # or raise an error if it's not available so that the workflow fails
