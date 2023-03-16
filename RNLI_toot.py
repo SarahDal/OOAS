@@ -13,11 +13,14 @@ filename = 'launch_time.txt'
 mastodon_url = 'https://botsin.space/'
 access_token = 'SOME_SECRET'
 
+print(SOME_SECRET)
+
 # Create a Mastodon instance
 mastodon = Mastodon(
     access_token=access_token,
     api_base_url=mastodon_url
 )
+print("access token", access_token)
 
 # Make a GET request to the API endpoint
 response = requests.get('https://services.rnli.org/api/launches')
