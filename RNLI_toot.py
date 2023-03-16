@@ -13,6 +13,7 @@ filename = 'launch_time.txt'
 mastodon_url = 'https://botsin.space/'
 access_token = 'SOME_SECRET'
 
+print("secret")
 print(SOME_SECRET)
 
 # Create a Mastodon instance
