@@ -22,7 +22,7 @@ print(access_token)
 
 # Create a Mastodon instance
 mastodon = Mastodon(
-    access_token=access_token,
+    access_token=SOME_SECRET,
     api_base_url=mastodon_url
 )
 print("access token", access_token)
