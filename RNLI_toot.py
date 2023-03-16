@@ -15,7 +15,7 @@ filename = 'launch_time.txt'
 
 # Define the Mastodon instance URL and access token
 mastodon_url = 'https://botsin.space/'
-access_token = '{SOME_SECRET}'
+access_token = 'SOME_SECRET'
 
 # Create a Mastodon instance
 mastodon = Mastodon(
