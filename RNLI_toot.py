@@ -4,11 +4,7 @@ import os
 import sys
 from mastodon import Mastodon
 
-try:
-    SOME_SECRET = os.environ['SOME_SECRET']
-except KeyError:
-    SOME_SECRET = "Token not available!"
-    # or raise an error if it's not available so that the workflow fails
+SOME_SECRET = os.environ['SOME_SECRET']
 
 # Define the name of the file to write to
 filename = 'launch_time.txt'
