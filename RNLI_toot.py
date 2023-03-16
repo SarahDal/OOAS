@@ -5,6 +5,8 @@ import sys
 from mastodon import Mastodon
 
 SOME_SECRET = os.environ['SOME_SECRET']
+print("secret1")
+print(SOME_SECRET)
 
 # Define the name of the file to write to
 filename = 'launch_time.txt'
