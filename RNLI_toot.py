@@ -68,6 +68,6 @@ with open(filename, 'w') as file:
 status_update = f'Launched from {short_name} at {launch_time} - http://{website}'
 
 mastodon.status_post(status_update)
-
+#
 # Print a confirmation message to the console
 print('Launch time has been updated to:', launch_time)
