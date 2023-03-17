@@ -2,7 +2,11 @@ name: run RNLI_toot.py
 
 on:
   schedule:
-    - cron: '0 * * * *' # every twenty mins
+    - cron: '0 * * * *' # every twenty min
+
+permissions:
+  push: # Grant permission to push to the repository
+    contents: write
 
 jobs:
   build:
@@ -35,7 +39,6 @@ jobs:
           git diff-index --quiet HEAD || (git commit -a -m "updated logs" --allow-empty)
           
       - name: push changes
-        permissions: read-all|write-all
         uses: ad-m/github-push-action@v0.6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
