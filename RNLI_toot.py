@@ -36,8 +36,9 @@ response_data = response.json()
 # Access the first launch in the response data
 first_launch = response_data[0]
 
-# Access the 'shortName' and 'launchDate' parameters for the first launch
+# Access the 'shortName' 'website' and 'launchDate' parameters for the first launch
 short_name = first_launch['shortName']
+website = first_launch['website']
 
 # Parse the ISO 8601 formatted date string and convert it to a datetime object
 launch_datetime = datetime.fromisoformat(first_launch['launchDate'])
@@ -64,7 +65,7 @@ with open(filename, 'w') as file:
     file.write(launch_time)
 
 # Post to Mastodon with a status update
-status_update = f'Launched from {short_name} at {launch_time} - {Website}'
+status_update = f'Launched from {short_name} at {launch_time} - {website}'
 
 mastodon.status_post(status_update)
 
