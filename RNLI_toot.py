@@ -64,7 +64,7 @@ with open(filename, 'w') as file:
     file.write(launch_time)
 
 # Post to Mastodon with a status update
-status_update = f'Launched from {short_name} at {launch_time} - https://rnli.org/{short_name}'
+status_update = f'Launched from {short_name} at {launch_time} - {Website}'
 
 mastodon.status_post(status_update)
 
