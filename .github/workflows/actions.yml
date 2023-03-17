@@ -2,7 +2,7 @@ name: run RNLI_toot.py
 
 on:
   schedule:
-    - cron: '0 * * * *' # every twenty min
+    - cron: '*/5 * * * *' # every twenty min
 
 permissions:
   push: # Grant permission to push to the repository
