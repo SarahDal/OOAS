@@ -4,10 +4,6 @@ on:
   schedule:
     - cron: '*/10 * * * *' # every twenty min
 
-permissions:
-  push: # Grant permission to push to the repository
-    contents: write
-
 jobs:
   build:
     runs-on: ubuntu-latest
