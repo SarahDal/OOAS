@@ -5,8 +5,6 @@ import sys
 from mastodon import Mastodon
 
 SOME_SECRET = os.environ['SOME_SECRET']
-print("secret1")
-print(SOME_SECRET)
 
 # Define the name of the file to write to
 filename = 'launch_time.txt'
@@ -15,17 +13,11 @@ filename = 'launch_time.txt'
 mastodon_url = 'https://botsin.space/'
 access_token = 'SOME_SECRET'
 
-print("secret")
-print(SOME_SECRET)
-print("access")
-print(access_token)
-
 # Create a Mastodon instance
 mastodon = Mastodon(
     access_token=SOME_SECRET,
     api_base_url=mastodon_url
 )
-print("access token", access_token)
 
 # Make a GET request to the API endpoint
 response = requests.get('https://services.rnli.org/api/launches')
