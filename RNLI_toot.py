@@ -37,7 +37,7 @@ response_data = response.json()
 first_launch = response_data[0]
 
 # Access the 'shortName' 'website' and 'launchDate' parameters for the first launch
-short_name = first_launch['shortName']
+short_name = first_launch['title']
 website = first_launch['website']
 
 # Parse the ISO 8601 formatted date string and convert it to a datetime object
