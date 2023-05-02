@@ -2,7 +2,7 @@ name: run RNLI_toot.py
 
 on:
   schedule:
-    - cron: '*/33 * * * *' # every X min
+    - cron: '*/28 * * * *' # every X min
 
 jobs:
   build:
