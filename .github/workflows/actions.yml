@@ -1,7 +1,6 @@
 name: run RNLI_toot.py
 
 on:
-  workflow_dispatch
   schedule:
     - cron: '*/28 * * * *' # every X min
 
