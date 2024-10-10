@@ -3,7 +3,6 @@ name: run RNLI_toot.py
 on:
   schedule:
     - cron: '*/28 * * * *' # every X min
-
 jobs:
   build:
     runs-on: ubuntu-latest
