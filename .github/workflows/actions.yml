@@ -25,6 +25,7 @@ jobs:
       - name: execute py script # run RNLI_toot.py
         env:
           SOME_SECRET: ${{ secrets.SOME_SECRET }}
+          BSKY_SECRET: ${{ secrets.BSKY_SECRET }}
         run: python RNLI_toot.py
           
       - name: commit files
