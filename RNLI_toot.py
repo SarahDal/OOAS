@@ -2,9 +2,11 @@ import requests
 from datetime import datetime
 import os
 import sys
-from mastodon import Mastodon
+from mastodon import Mastodon #Masto
+from atproto import Client #Bsky
 
 SOME_SECRET = os.environ['SOME_SECRET']
+BSKY_SECRET = os.environ['BSKY_SECRET']
 
 # Define the name of the file to write to
 filename = 'launch_time.txt'
@@ -18,6 +20,10 @@ mastodon = Mastodon(
     access_token=SOME_SECRET,
     api_base_url=mastodon_url
 )
+
+# Log int o BSKY
+client = Client()
+client.login('outonashout.bsky.social', BSKY_SECRET)
 
 # Make a GET request to the API endpoint
 response = requests.get('https://services.rnli.org/api/launches')
@@ -59,7 +65,15 @@ with open(filename, 'w') as file:
 # Post to Mastodon with a status update
 status_update = f'Launched from {short_name} at {launch_time} - http://{website} #RNLI'
 
-mastodon.status_post(status_update)
-#
+try:
+    mastodon.status_post(status_update)
+except Exception as e:
+    print('Mastodon post failed:', e)
+
+try:
+    post = client.send_post(status_update)
+except Exception as e:
+    print('Bsky post failed:', e)
+
 # Print a confirmation message to the console
 print('Launch time has been updated to:', launch_time)
