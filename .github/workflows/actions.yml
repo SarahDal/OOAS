@@ -2,7 +2,7 @@ name: run RNLI_toot.py
 
 on:
   schedule:
-    - cron: '*/28 * * * *' # every 28 minutes
+    - cron: '*/8 * * * *' # every 8 minutes
   workflow_dispatch:  # This enables the manual trigger option
 jobs:
   build:
