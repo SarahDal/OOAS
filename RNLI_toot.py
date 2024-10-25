@@ -62,18 +62,26 @@ if os.path.isfile(filename):
 with open(filename, 'w') as file:
     file.write(launch_time)
 
-# Post to Mastodon with a status update
-status_update = f'Launched from {short_name} at {launch_time} - http://{website} #RNLI'
+# Ensure URL is fully qualified with "https://"
+full_url = f'https://{website}'
 
+# Create a hashtag suitable for both platforms
+hashtag = '#RNLI'
+
+# Format the status update with full URL and hashtag
+status_update = f'Launched from {short_name} at {launch_time} - {full_url} {hashtag}'
+
+# Post to Mastodon
 try:
     mastodon.status_post(status_update)
 except Exception as e:
     print('Mastodon post failed:', e)
 
+# Post to Bluesky
 try:
     post = client.send_post(status_update)
 except Exception as e:
-    print('Bsky post failed:', e)
+    print('Bluesky post failed:', e)
 
-# Print a confirmation message to the console
+# Confirmation message
 print('Launch time has been updated to:', launch_time)
