@@ -2,7 +2,7 @@ name: run RNLI_toot.py
 
 on:
   schedule:
-    - cron: '*/28 * * * *' # every X min
+    - cron: '*/28 * * * *' # every 28 minutes
   #workflow_dispatch:  # This enables the manual trigger option
 jobs:
   build:
@@ -34,7 +34,10 @@ jobs:
           git config --local user.name "GitHub Action"
           git add -A
           git diff-index --quiet HEAD || git commit -m "updated logs"
-               
+
+      - name: pull latest changes
+        run: git pull origin main # pulls latest changes from the remote main branch
+
       - name: push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
