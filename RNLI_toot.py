@@ -82,7 +82,7 @@ full_url = f'https://{website}'
 hashtag = '#RNLI'
 
 # Format the status update with full URL and hashtag
-status_update = f'{lifeboat_class}'class lifeboat launched from {short_name} at {launch_time} - {full_url} {hashtag}'
+status_update = f'{lifeboat_class} class lifeboat launched from {short_name} at {launch_time} - {full_url} {hashtag}'
 
 # Post to Mastodon
 try:
