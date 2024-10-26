@@ -34,9 +34,10 @@ response_data = response.json()
 # Access the first launch in the response data
 first_launch = response_data[0]
 
-# Access the 'shortName' 'website' and 'launchDate' parameters for the first launch
+# Access the 'shortName' 'website' 'boat id' and 'launchDate' parameters for the first launch
 short_name = first_launch['title']
 website = first_launch['website']
+boat_id = first_launch['lifeboat_IdNo']
 
 # Parse the ISO 8601 formatted date string and convert it to a datetime object
 launch_datetime = datetime.fromisoformat(first_launch['launchDate'])
@@ -44,6 +45,18 @@ launch_datetime = datetime.fromisoformat(first_launch['launchDate'])
 # Format the datetime object as hh:mm and store it in a string variable
 launch_time = launch_datetime.strftime('%H:%M')
 
+# Function to look up lifeboat class by IdNo
+def get_lifeboat_class(boat_id):
+    with open('RNLI_Lifeboat_Fleet.csv', mode='r') as file:
+        csv_reader = csv.reader(file)
+        for row in csv_reader:
+            # Check if the second column matches the boat_id
+            if row[10] == boat_id:
+                return row[12]  # Return the first column (lifeboat name)
+    return "Unknown Lifeboat"
+
+# Get the lifeboat name based on the IdNo
+lifeboat_class = get_lifeboat_class(boat_id)
 
 # Check if the file already exists
 if os.path.isfile(filename):
@@ -69,7 +82,7 @@ full_url = f'https://{website}'
 hashtag = '#RNLI'
 
 # Format the status update with full URL and hashtag
-status_update = f'Launched from {short_name} at {launch_time} - {full_url} {hashtag}'
+status_update = f'{lifeboat_class}'class lifeboat launched from {short_name} at {launch_time} - {full_url} {hashtag}'
 
 # Post to Mastodon
 try:
