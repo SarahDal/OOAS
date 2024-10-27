@@ -80,10 +80,10 @@ with open(filename, 'w') as file:
 full_url = f'https://{website}'
 
 # Create a hashtag suitable for both platforms
-hashtag = '#RNLI'
+# hashtag = '#RNLI'
 
 # Format the status update with full URL and hashtag
-status_update = f'{lifeboat_class} class lifeboat launched from {short_name} at {launch_time} - {full_url} {hashtag}'
+status_update = f'{lifeboat_class} class lifeboat launched from {short_name} at {launch_time} - {full_url}'
 
 # Post to Mastodon
 try:
