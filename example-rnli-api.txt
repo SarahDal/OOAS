@@ -1,0 +1,10 @@
+example
+
+[
+    ('id', 565008),
+    ('cOACS', 542),
+    ('title', 'Peterhead, Grampian'),
+    ('website', 'rnli.org/Peterhead'),
+    ('lifeboat_IdNo', '16-03'),
+    ('shortName', 'Scarborough')
+]
