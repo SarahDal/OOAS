@@ -53,10 +53,10 @@ def get_lifeboat_class(boat_id):
         for row in csv_reader:
             # Check if the second column matches the boat_id
             if row[10] == boat_id:
-                return row[12]  # Return the first column (lifeboat name)
+                return row[12]  # Return the 12th column (lifeboat class)
     return "Unknown Lifeboat"
 
-# Get the lifeboat name based on the IdNo
+# Get the lifeboat class based on the IdNo
 lifeboat_class = get_lifeboat_class(boat_id)
 
 # Check if the file already exists
@@ -82,8 +82,17 @@ full_url = f'https://{website}'
 # Create a hashtag suitable for both platforms
 # hashtag = '#RNLI'
 
-# Format the status update with full URL and hashtag
-status_update = f'{lifeboat_class} class lifeboat launched from {short_name} at {launch_time} - {full_url}'
+# Format the status update with full URL and hashtag. changed to try and deal with "Unknown class Class lifeboat"
+# # status_update = f'{lifeboat_class} class lifeboat launched from {short_name} at {launch_time} - {full_url}'
+
+# Determine the correct format for the lifeboat class in the status update
+if lifeboat_class == "Unknown Lifeboat":
+    # Format status update without "Unknown Lifeboat" and "class"
+    status_update = f'Lifeboat launched from {short_name} at {launch_time} - {full_url}'
+else:
+    # Include lifeboat class as usual
+    status_update = f'{lifeboat_class}-class lifeboat launched from {short_name} at {launch_time} - {full_url}'
+
 
 # Post to Mastodon
 try:
