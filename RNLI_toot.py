@@ -13,7 +13,7 @@ BSKY_SECRET = os.environ['BSKY_SECRET']
 filename = 'launch_time.txt'
 
 # Define the Mastodon instance URL and access token
-mastodon_url = 'https://botsin.space/'
+mastodon_url = 'https://mas.to/'
 access_token = 'SOME_SECRET'
 
 # Create a Mastodon instance
