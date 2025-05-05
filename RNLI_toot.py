@@ -28,6 +28,9 @@ client.login('outonashout.bsky.social', BSKY_SECRET)
 
 # Make a GET request to the API endpoint
 response = requests.get('https://services.rnli.org/api/launches')
+if response.status_code != 200:
+    print('Failed to fetch launches:', response.status_code)
+    sys.exit()
 
 # Convert the response data to JSON format
 response_data = response.json()
